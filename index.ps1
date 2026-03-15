@@ -1,5 +1,5 @@
 # DT Activator One-Liner Wrapper
-# Usage: irm https://dtactivator.dev | iex
+# Usage: irm https://dtdeville.github.io/DT-Activator/index.ps1 | iex
 
 param(
     [string]$Mode,
@@ -27,7 +27,7 @@ function Request-AdminElevation {
         if ($Silent) { $scriptArgs += "-Silent" }
         if ($Help) { $scriptArgs += "-Help" }
         
-        Start-Process PowerShell -ArgumentList "-ExecutionPolicy Bypass -Command `"irm https://dtactivator.dev | iex`"" -Verb RunAs
+        Start-Process PowerShell -ArgumentList "-ExecutionPolicy Bypass -Command `"irm https://dtdeville.github.io/DT-Activator/index.ps1 | iex`"" -Verb RunAs
         exit
     }
 }
