@@ -62,6 +62,9 @@ $Script:Version = "3.10"
 $Script:Homepage = "dtactivator.dev"
 $Script:GitHub = "https://github.com/DT-Deville/DT-Activator"
 
+# Check if running in one-liner mode
+$Script:IsOneLiner = -not $PSCommandPath
+
 # Color functions
 function Write-ColorText {
     param(
@@ -90,6 +93,23 @@ function Show-Header {
 
 function Show-MainMenu {
     Show-Header
+    
+    # If running in one-liner mode, show instructions instead of waiting for input
+    if ($Script:IsOneLiner) {
+        Write-Host "DT Activator is running in one-liner mode." -ForegroundColor Yellow
+        Write-Host "Use parameters to specify activation method:" -ForegroundColor Yellow
+        Write-Host ""
+        Write-Host "Examples:" -ForegroundColor Cyan
+        Write-Host "  irm https://dtactivator.netlify.app/DT-Activator.ps1 | iex -Mode HWID" -ForegroundColor White
+        Write-Host "  irm https://dtactivator.netlify.app/DT-Activator.ps1 | iex -Mode Ohook" -ForegroundColor White
+        Write-Host "  irm https://dtactivator.netlify.app/DT-Activator.ps1 | iex -Mode TSforge" -ForegroundColor White
+        Write-Host "  irm https://dtactivator.netlify.app/DT-Activator.ps1 | iex -Mode KMS" -ForegroundColor White
+        Write-Host ""
+        Write-Host "For interactive menu, download and run locally:" -ForegroundColor Yellow
+        Write-Host "  1. Download DT-Activator.ps1" -ForegroundColor White
+        Write-Host "  2. Run: .\DT-Activator.ps1" -ForegroundColor White
+        return
+    }
     
     Write-Host "   [1] Digital Pulse      - Windows Permanent License" -ForegroundColor Green
     Write-Host "   [2] Office Injector    - Office Activation Bridge" -ForegroundColor Green
