@@ -28,7 +28,18 @@ function Request-AdminElevation {
         if ($Silent) { $scriptArgs += "-Silent" }
         if ($Help) { $scriptArgs += "-Help" }
         
-        Start-Process PowerShell -ArgumentList "-ExecutionPolicy Bypass -File `"$PSCommandPath`" $scriptArgs" -Verb RunAs
+        # Check if running from one-liner or local file
+        if ($PSCommandPath -and (Test-Path $PSCommandPath)) {
+            # Local file execution
+            Start-Process PowerShell -ArgumentList "-ExecutionPolicy Bypass -File `"$PSCommandPath`" $scriptArgs" -Verb RunAs
+        } else {
+            # One-liner execution - download and run with admin
+            $oneLiner = "irm https://dtactivator.netlify.app/DT-Activator.ps1 | iex"
+            if ($scriptArgs.Count -gt 0) {
+                $oneLiner += " " + ($scriptArgs -join " ")
+            }
+            Start-Process PowerShell -ArgumentList "-ExecutionPolicy Bypass -Command `"$oneLiner`"" -Verb RunAs
+        }
         exit
     }
 }
@@ -37,6 +48,9 @@ function Request-AdminElevation {
 if ($Mode -and $Mode -ne "") {
     Request-AdminElevation
 }
+
+# Debug: Show that script is loading
+Write-Host "DT Activator v$Script:Version loading..." -ForegroundColor Green
 
 # Set console appearance
 $Host.UI.RawUI.BackgroundColor = "Black"
@@ -138,7 +152,6 @@ function Request-AdminElevation {
 # Activation Functions
 function Invoke-HWIDActivation {
     Write-Host " Starting HWID Activation..." -ForegroundColor Yellow
-    Request-AdminElevation
     
     # HWID activation logic would go here
     Write-Host " HWID activation completed." -ForegroundColor Green
@@ -148,7 +161,6 @@ function Invoke-HWIDActivation {
 
 function Invoke-OhookActivation {
     Write-Host " Starting Ohook Activation..." -ForegroundColor Yellow
-    Request-AdminElevation
     
     # Ohook activation logic would go here
     Write-Host " Ohook activation completed." -ForegroundColor Green
@@ -158,7 +170,6 @@ function Invoke-OhookActivation {
 
 function Invoke-TSforgeActivation {
     Write-Host " Starting TSforge Activation..." -ForegroundColor Yellow
-    Request-AdminElevation
     
     # TSforge activation logic would go here
     Write-Host " TSforge activation completed." -ForegroundColor Green
@@ -168,7 +179,6 @@ function Invoke-TSforgeActivation {
 
 function Invoke-KMSActivation {
     Write-Host " Starting KMS Activation..." -ForegroundColor Yellow
-    Request-AdminElevation
     
     # KMS activation logic would go here
     Write-Host " KMS activation completed." -ForegroundColor Green
@@ -321,5 +331,6 @@ if ($Mode) {
     }
 } else {
     # Show main menu if no specific mode is requested
+    Write-Host "Starting main menu..." -ForegroundColor Yellow
     Show-MainMenu
 }
