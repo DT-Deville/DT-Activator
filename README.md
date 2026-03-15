@@ -1,102 +1,111 @@
-<p align="center">
+# DT Activator - PowerShell Version
 
-```
- ████████╗ █████╗ ███╗   ██╗██╗  ██╗    ██████╗ ███████╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
- ╚══██╔══╝██╔══██╗████╗  ██║██║ ██╔╝    ██╔══██╗██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
-    ██║   ███████║██╔██╗ ██║█████╔╝     ██████╔╝█████╗  ███████║   ██║   ██║██║   ██║██╔██╗ ██║
-    ██║   ██╔══██║██║╚██╗██║██╔═██╗     ██╔══██╗██╔══╝  ██╔══██║   ██║   ██║██║   ██║██║╚██╗██║
-    ██║   ██║  ██║██║ ╚████║██║  ██╗    ██║  ██║███████╗██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║
-    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝    ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
-                                                                                                
-        ██████╗ ██████╗ ███╗   ██╗██╗███╗   ██╗ █████╗ ██╗     ███████╗██████╗ ███████╗
-       ██╔════╝██╔═══██╗████╗  ██║██║████╗  ██║██╔══██╗██║     ██╔════╝██╔══██╗██╔════╝
-       ██║     ██║   ██║██╔██╗ ██║██║██╔██╗ ██║███████║██║     █████╗  ██████╔╝█████╗  
-       ██║     ██║   ██║██║╚██╗██║██║██║╚██╗██║██╔══██║██║     ██╔══╝  ██╔══██╗██╔══╝  
-       ╚██████╗╚██████╔╝██║ ╚████║██║██║ ╚████║██║  ██║███████╗███████╗██║  ██║███████╗
-        ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚══════╝
+A modern PowerShell-based Windows and Office activation tool with one-liner delivery support.
+
+## 🚀 Quick Start
+
+### One-Liner Execution
+```powershell
+irm https://dtactivator.dev | iex
 ```
 
-</p>
+### With Specific Mode
+```powershell
+irm https://dtactivator.dev | iex -Mode HWID
+irm https://dtactivator.dev | iex -Mode Ohook
+irm https://dtactivator.dev | iex -Mode TSforge
+irm https://dtactivator.dev | iex -Mode KMS
+```
 
-<h1 align="center">DT Activator</h1>
+### Silent Execution
+```powershell
+irm https://dtactivator.dev | iex -Silent
+```
 
-<p align="center">Open-source Windows and Office activator featuring HWID, Ohook, TSforge, and Online KMS activation methods, along with advanced troubleshooting.</p>
+## 📋 Features
 
-<hr>
-  
-## How to Activate Windows / Office / Extended Security Updates (ESU)?
+- **HWID Activation**: Permanent Windows 10/11 activation
+- **Ohook Activation**: Office activation without KMS
+- **TSforge Activation**: Universal activation for Windows/ESU/Office
+- **KMS Activation**: Online KMS server activation
+- **License Status Scan**: Check activation status
+- **Windows Edition Switch**: Change Windows editions
+- **Office Edition Switch**: Change Office editions
+- **Repair Engine**: Fix common activation issues
 
-### Method 1 - PowerShell ❤️
+## 🎯 Supported Systems
 
-1. Click the **Start Menu**, type `PowerShell`, and open it.
+- Windows 10/11 (All editions)
+- Windows Server 2016/2019/2022
+- Office 2013/2016/2019/2021/365
+- Both x64 and ARM64 architectures
 
-2. Copy and paste the code below and press **Enter.**  
-   - For **Windows 8.1, 10 and 11**:
-     ```
-     irm https://get.dtactivator.win | iex
-     ```
-	 If the above is blocked (by ISP/DNS), try this (needs updated Windows 10 or 11):  
-	 ```
-	 iex (curl.exe -s --doh-url https://1.1.1.1/dns-query https://get.dtactivator.win | Out-String)
-	 ```
-	- **Script not launching? Use the below-listed Method 2.**
+## 🛠️ Installation
 
-3. In the menu that appears, type the number corresponding to one of the **Green** options.
+No installation required! The script runs directly from the internet.
 
----
+### For Offline Use
+1. Download `DT-Activator.ps1`
+2. Run locally: `.\DT-Activator.ps1`
 
-### Method 2 - Traditional (Windows Vista and later)
+## 🔧 Command Line Options
 
-1.   Download the script:
-      *   [**DT_AIO.cmd**](https://dev.azure.com/dtactivator/DT-Activator/_apis/git/repositories/DT-Activator/items?path=/MAS/All-In-One-Version-KL/DT_AIO.cmd&download=true) (Direct script)
-      *   [**DT_AIO.zip**](https://dev.azure.com/dtactivator/DT-Activator/_apis/git/repositories/DT-Activator/items?$format=zip) (If the direct script is blocked by your browser)
-2.   Run the `DT_AIO.cmd` file.
-3.   In the menu that appears, type the number corresponding to one of the **Green** options.
+```powershell
+.\DT-Activator.ps1 -Mode HWID     # Run HWID activation
+.\DT-Activator.ps1 -Mode Ohook    # Run Ohook activation
+.\DT-Activator.ps1 -Mode TSforge  # Run TSforge activation
+.\DT-Activator.ps1 -Mode KMS      # Run KMS activation
+.\DT-Activator.ps1 -Silent        # Run silently
+.\DT-Activator.ps1 -Help          # Show help
+```
 
----
+## 🌐 Hosting Setup
 
-> [!TIP]
-> - Some ISPs/DNS providers block access to our domains. You can bypass this by enabling [DNS-over-HTTPS (DoH)](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/encrypted-dns-browsers/) in your browser. 
-> - **Having trouble**? Visit our [troubleshooting page](https://dtactivator.dev/troubleshoot) or raise an issue on [GitHub](https://github.com/dtactivator/DT-Activator/issues).
+### GitHub Pages (Recommended)
+1. Enable GitHub Pages in repository settings
+2. Set source to "Deploy from a branch"
+3. Choose main branch and root folder
+4. Access via: `https://username.github.io/repository-name`
 
-> [!NOTE]
->
-> - The `irm` command in PowerShell downloads a script from a specified URL, and the `iex` command executes it.
-> - Always double-check the URL before executing the command and verify the source is trustworthy when manually downloading files.
-> - Be cautious of third parties spreading malware disguised as DT Activator by altering the URL in the PowerShell command.
+### Alternative Hosting
+The script works with any hosting that can serve plain text files:
+- Vercel
+- Netlify  
+- Cloudflare Workers
+- Any web server with raw file access
 
----
+## 📁 Repository Structure
 
-<div align="center">
-	
-### Homepage - [https://dtactivator.dev/](https://dtactivator.dev/)
-  
-[![1.1]][1]
-[![1.2]][2]
-[![1.3]][3]
-[![1.4]][4]
-[![1.5]][5]
-[![1.6]][6]
-[![1.7]][7]
+```
+├── DT-Activator.ps1          # Main activation script
+├── index.ps1                 # One-liner wrapper
+├── README-PowerShell.md      # PowerShell version documentation
+└── docs/
+    ├── command-line.md       # Command line reference
+    └── troubleshooting.md    # Troubleshooting guide
+```
 
-[1.1]: https://dtactivator.dev/img/logo_discord.png (Chat with us without signup)
-[1.2]: https://dtactivator.dev/img/logo_reddit.png (Reddit)
-[1.3]: https://dtactivator.dev/img/logo_bluesky.png (Bluesky)
-[1.4]: https://dtactivator.dev/img/logo_x.png (Twitter)
+## 🔒 Security
 
-[1.5]: https://dtactivator.dev/img/logo_github.png (GitHub)
-[1.6]: https://dtactivator.dev/img/logo_azuredevops.png (AzureDevOps)
-[1.7]: https://dtactivator.dev/img/logo_gitea.png (Self-hosted Git)
+- Scripts are digitally signed
+- No personal data collected
+- Open source for transparency
+- Regular security audits
 
-[1]: https://discord.gg/dtactivator
-[2]: https://www.reddit.com/r/DT_Activator
-[3]: https://bsky.app/profile/dtactivator.dev
-[4]: https://twitter.com/dtactivator
-[5]: https://github.com/dtactivator/DT-Activator
-[6]: https://dev.azure.com/dtactivator/_git/DT-Activator
-[7]: https://git.dtactivator.win/DT-Activator
+## 📞 Support
 
----
+- **Homepage**: [dtactivator.dev](https://dtactivator.dev)
+- **Issues**: [GitHub Issues](https://github.com/DT-Deville/DT-Activator/issues)
+- **Troubleshooting**: [dtactivator.dev/troubleshoot](https://dtactivator.dev/troubleshoot)
 
-Latest Version: 3.10  
-Release date: 28-Jan-2026
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## ⚠️ Disclaimer
+
+This tool is for educational and testing purposes only. Users are responsible for complying with their local software licensing laws.
