@@ -26,7 +26,7 @@
 
 ### PowerShell One-Liner (Recommended)
 ```powershell
-irm https://dtdeville.github.io/DT-Activator/index.ps1 | iex
+irm https://dtactivator.netlify.app | iex
 ```
 
 ### Alternative URLs
@@ -40,15 +40,15 @@ irm https://raw.githubusercontent.com/DT-Deville/DT-Activator/main/index.ps1 | i
 
 ### With Specific Activation Mode
 ```powershell
-irm https://dtdeville.github.io/DT-Activator/index.ps1 | iex -Mode HWID
-irm https://dtdeville.github.io/DT-Activator/index.ps1 | iex -Mode Ohook
-irm https://dtdeville.github.io/DT-Activator/index.ps1 | iex -Mode TSforge
-irm https://dtdeville.github.io/DT-Activator/index.ps1 | iex -Mode KMS
+irm https://dtactivator.netlify.app | iex -Mode HWID
+irm https://dtactivator.netlify.app | iex -Mode Ohook
+irm https://dtactivator.netlify.app | iex -Mode TSforge
+irm https://dtactivator.netlify.app | iex -Mode KMS
 ```
 
 ### Silent Execution
 ```powershell
-irm https://dtdeville.github.io/DT-Activator/index.ps1 | iex -Mode HWID -Silent
+irm https://dtactivator.netlify.app | iex -Mode HWID -Silent
 ```
 
 ## 📋 Features
@@ -94,7 +94,7 @@ irm https://dtdeville.github.io/DT-Activator/index.ps1 | iex -Mode HWID -Silent
 ### 🌐 Online Execution (No Download Required)
 Simply run the one-liner command in PowerShell as Administrator:
 ```powershell
-irm https://dtdeville.github.io/DT-Activator/index.ps1 | iex
+irm https://dtactivator.netlify.app | iex
 ```
 
 ### 💻 Offline Usage
