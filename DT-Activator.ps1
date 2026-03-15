@@ -11,6 +11,33 @@ param(
     [switch]$Help
 )
 
+# Check for admin privileges and self-elevate if needed
+function Test-AdminPrivileges {
+    $currentUser = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $principal = New-Object Security.Principal.WindowsPrincipal($currentUser)
+    return $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+}
+
+function Request-AdminElevation {
+    if (-not (Test-AdminPrivileges)) {
+        Write-Host "DT Activator requires administrator privileges." -ForegroundColor Yellow
+        Write-Host "Elevating privileges..." -ForegroundColor Yellow
+        
+        $scriptArgs = @()
+        if ($Mode) { $scriptArgs += "-Mode", $Mode }
+        if ($Silent) { $scriptArgs += "-Silent" }
+        if ($Help) { $scriptArgs += "-Help" }
+        
+        Start-Process PowerShell -ArgumentList "-ExecutionPolicy Bypass -File `"$PSCommandPath`" $scriptArgs" -Verb RunAs
+        exit
+    }
+}
+
+# Auto-elevate for activation modes
+if ($Mode -and $Mode -ne "") {
+    Request-AdminElevation
+}
+
 # Set console appearance
 $Host.UI.RawUI.BackgroundColor = "Black"
 $Host.UI.RawUI.ForegroundColor = "Green"

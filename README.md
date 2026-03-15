@@ -41,6 +41,10 @@
 
 ### PowerShell One-Liner (Recommended)
 ```powershell
+# Option 1: Direct script execution
+irm https://dtactivator.netlify.app/DT-Activator.ps1 | iex
+
+# Option 2: Wrapper script (same result)
 irm https://dtactivator.netlify.app/index.ps1 | iex
 ```
 
@@ -55,15 +59,19 @@ irm https://raw.githubusercontent.com/DT-Deville/DT-Activator/main/index.ps1 | i
 
 ### With Specific Activation Mode
 ```powershell
+# Direct script execution
+irm https://dtactivator.netlify.app/DT-Activator.ps1 | iex -Mode HWID
+irm https://dtactivator.netlify.app/DT-Activator.ps1 | iex -Mode Ohook
+irm https://dtactivator.netlify.app/DT-Activator.ps1 | iex -Mode TSforge
+irm https://dtactivator.netlify.app/DT-Activator.ps1 | iex -Mode KMS
+
+# Or using wrapper script
 irm https://dtactivator.netlify.app/index.ps1 | iex -Mode HWID
-irm https://dtactivator.netlify.app/index.ps1 | iex -Mode Ohook
-irm https://dtactivator.netlify.app/index.ps1 | iex -Mode TSforge
-irm https://dtactivator.netlify.app/index.ps1 | iex -Mode KMS
 ```
 
 ### Silent Execution
 ```powershell
-irm https://dtactivator.netlify.app/index.ps1 | iex -Mode HWID -Silent
+irm https://dtactivator.netlify.app/DT-Activator.ps1 | iex -Mode HWID -Silent
 ```
 
 ## 📋 Features
@@ -109,6 +117,10 @@ irm https://dtactivator.netlify.app/index.ps1 | iex -Mode HWID -Silent
 ### 🌐 Online Execution (No Download Required)
 Simply run the one-liner command in PowerShell as Administrator:
 ```powershell
+# Direct script execution (recommended)
+irm https://dtactivator.netlify.app/DT-Activator.ps1 | iex
+
+# Or using wrapper script
 irm https://dtactivator.netlify.app/index.ps1 | iex
 ```
 
@@ -147,11 +159,11 @@ irm https://dtactivator.netlify.app/index.ps1 | iex
 ## 📁 Repository Structure
 ```
 DT-Activator/
-├── 📄 DT-Activator.ps1              # Main PowerShell script
-├── 📄 index.ps1                     # One-liner wrapper
+├── 📄 DT-Activator.ps1              # Main PowerShell script (can be run directly)
+├── 📄 index.ps1                     # One-liner wrapper (alternative)
 ├── 📄 README.md                     # This file
 ├── 📁 docs/                         # Documentation
-└──  DT-Activator-Batch/           # Batch script versions
+└── 📁 DT-Activator-Batch/           # Batch script versions
     ├── 📁 DT-Activator-All-In-One/  # All-in-one batch
     └── 📁 DT-Activator-Separate/    # Separate batch files
 ```
